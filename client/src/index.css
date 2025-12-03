@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+/* Custom styles from original project can be adapted here */
+body {
+  font-family: 'Poppins', sans-serif;
+}
