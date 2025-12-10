@@ -1,3 +1,4 @@
+import { API_BASE_URL } from '../api';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -17,7 +18,7 @@ const AdminDashboard = () => {
 
     const fetchDonations = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/api/donations');
+            const res = await axios.get(`${API_BASE_URL}/api/donations`);
             setDonations(res.data);
         } catch (err) {
             console.error(err);
@@ -33,9 +34,7 @@ const AdminDashboard = () => {
         if (currentStatus === 'Completed') return;
 
         try {
-            const res = await axios.put(`http://localhost:5000/api/donations/${id}/status`, {
-                status: 'Completed'
-            });
+            const res = await axios.put(`${API_BASE_URL}/api/donations/${id}/status`, { status: 'Completed' });
 
             // Update local state
             setDonations(donations.map(donation =>

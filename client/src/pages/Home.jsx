@@ -1,3 +1,4 @@
+import { API_BASE_URL } from '../api';
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -32,7 +33,7 @@ const Home = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/donations', formData);
+            const response = await axios.post(`${API_BASE_URL}/api/donations`, formData);
             if (response.data.success) {
                 alert(response.data.message || 'Donation request submitted successfully! Check your email for confirmation.');
             } else {
