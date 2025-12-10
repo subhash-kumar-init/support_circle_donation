@@ -9,6 +9,10 @@ dotenv.config();
 
 const app = express();
 
+app.get('/', (req, res) => {
+    res.send('API is running successfully');
+});
+
 // Middleware
 app.use(cors());
 app.use(express.json());
